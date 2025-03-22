@@ -70,7 +70,7 @@ const ColorDetailPage = () => {
                       {selectedColor[codeType as keyof ColorType]}
                     </code>
                     <button
-                      onClick={() => copyToClipboard(selectedColor[codeType as keyof ColorType])}
+                      onClick={() => copyToClipboard(String(selectedColor[codeType as keyof ColorType]))}
                       className="px-4 py-2 bg-blue-100 text-blue-600 rounded-md hover:bg-blue-200 transition-colors text-sm font-medium"
                     >
                       Copy
