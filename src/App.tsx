@@ -7,11 +7,13 @@ import './App.css'
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/home" element={<HomePage />} />
-        <Route path="/color/:colorId" element={<ColorDetailPage />} />
-      </Routes>
+      <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/home" element={<HomePage />} />
+          <Route path="/color/:colorId" element={<ColorDetailPage />} />
+        </Routes>
+      </div>
     </Router>
   )
 }
