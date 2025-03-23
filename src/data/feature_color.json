@@ -1,0 +1,17 @@
+{
+    "feature1": {
+        "name": "Feature 1",
+        "description": "This is the first feature",
+        "color": ["#4361EE", "#F3EFFD", "#H5EFFD"]
+    },
+    "feature2": {
+        "name": "Feature 2",
+        "description": "This is the second feature",
+        "color": ["#4361EE", "#4361EE", "#r8F8F8"]
+    },
+    "feature3": {
+        "name": "Feature 3",
+        "description": "This is the third feature",
+        "color": ["#4361EE", "#4361EE", "#000000"]
+    }   
+}
