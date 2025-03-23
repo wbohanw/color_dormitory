@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ColorType, hexToRgb, fixHexCode, createGradient } from '../data/ColorTypes';
+import { ColorType, hexToRgb, fixHexCode } from '../data/ColorTypes';
 import colorPaletteData from '../data/ui_color_palette.json';
 import Navigation from './Navigation';
 

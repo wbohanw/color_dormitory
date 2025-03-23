@@ -45,11 +45,11 @@ const getCodeSnippets = (color: ColorType) => {
     react: `// React component with the ${color.name} palette\nimport React from 'react';\n\nconst ${color.name}Palette = {\n${
       colorsArray.map((hex, i) => `  ${colorVarNames[i]}: "${hex}",`).join('\n')
     }\n};\n\nconst PaletteDemo = () => (\n  <div style={{ display: 'flex', gap: '1rem', padding: '1rem' }}>\n${
-      colorsArray.map((hex, i) => `    <div style={{ width: 50, height: 50, backgroundColor: ${color.name}Palette["${colorVarNames[i]}"], borderRadius: '0.5rem' }} />`).join('\n')
+      colorsArray.map((_, i) => `    <div style={{ width: 50, height: 50, backgroundColor: ${color.name}Palette["${colorVarNames[i]}"], borderRadius: '0.5rem' }} />`).join('\n')
     }\n  </div>\n);`,
     
     tailwind: `<!-- Tailwind CSS with custom colors -->\n<div class="flex gap-4 p-4">\n${
-      colorsArray.map((hex, i) => `  <div class="w-12 h-12 rounded-lg bg-[${hex}]"></div>`).join('\n')
+      colorsArray.map((hex) => `  <div class="w-12 h-12 rounded-lg bg-[${hex}]"></div>`).join('\n')
     }\n</div>\n\n<!-- Add these colors to your tailwind.config.js -->\nmodule.exports = {\n  theme: {\n    extend: {\n      colors: {\n        '${color.category}': {\n${
       colorsArray.map((hex, i) => `          '${i + 1}00': '${hex}',`).join('\n')
     }\n        }\n      }\n    }\n  }\n}`,
@@ -60,30 +60,6 @@ const getCodeSnippets = (color: ColorType) => {
       colorsArray.map((hex, i) => `  ${i + 1}: ${hex},`).join('\n')
     }\n);\n\n// Usage\n.element {\n  background-color: $${colorVarNames[0]};\n  color: $${colorVarNames[colorsArray.length - 1]};\n  \n  &:hover {\n    background-color: map-get($${color.category?.toLowerCase()}-colors, 2);\n  }\n}`
   };
-};
-
-// Individual color swatch component
-const ColorSwatch = ({ hex, name, index }: { hex: string; name: string; index: number }) => {
-  const [copied, setCopied] = useState(false);
-
-  return (
-    <div className="color-swatch-container">
-      <div 
-        className="color-swatch-item"
-        style={{ backgroundColor: hex }}
-        onClick={() => {
-          navigator.clipboard.writeText(hex);
-          setCopied(true);
-          setTimeout(() => setCopied(false), 1500);
-        }}
-      />
-      <div className="color-swatch-info">
-        <div className="color-swatch-name">{name} {index + 1}</div>
-        <code className="color-swatch-hex">{hex}</code>
-        {copied && <div className="color-copy-badge">✓</div>}
-      </div>
-    </div>
-  );
 };
 
 const ColorDetailPage: React.FC = () => {
@@ -104,10 +80,6 @@ const ColorDetailPage: React.FC = () => {
       </div>
     );
   }
-
-  const gradientStyle = selectedColor.gradientColors 
-    ? { background: createGradient(selectedColor.gradientColors) }
-    : { backgroundColor: selectedColor.hex };
 
   return (
     <div className="min-h-screen w-full overflow-x-hidden bg-gradient-to-br from-gray-50 to-blue-50/20 dark:from-gray-900 dark:to-blue-900/10">

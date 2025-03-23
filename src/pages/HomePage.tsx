@@ -1,37 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Link, Routes, Route, Navigate, useLocation } from 'react-router-dom';
-import { ColorType } from '../data/ColorTypes';
 
 import MainColorsSection from '../components/MainColorsSection';
 import FeaturedColorsSection from '../components/FeaturedColorsSection';
 import PlaygroundSection from '../components/PlaygroundSection';
 import Navigation from '../components/Navigation';
-
-// Hero component with enhanced visual effects
-const Hero = () => {
-  return (
-    <div className="relative bg-gradient-to-r from-purple-600 to-blue-600 dark:from-purple-900 dark:to-blue-900 text-white py-24 md:py-32 overflow-hidden">
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-black/30 dark:from-black/40 dark:to-black/60" />
-        <div className="absolute -top-1/2 left-0 w-[200%] h-[150%] animate-floating">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl dark:bg-purple-800/30" />
-          <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl dark:bg-blue-800/30" />
-        </div>
-      </div>
-      <div className="container mx-auto px-4 relative z-10 max-w-[2000px] w-full">
-        <div className="max-w-4xl mx-auto text-center space-y-6">
-          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-100 to-purple-200 animate-fade-in-up">
-            Color Palette Helper
-          </h1>
-          <p className="text-xl md:text-2xl text-blue-100/90 dark:text-blue-200/80 leading-relaxed max-w-2xl mx-auto">
-            Discover, explore, and create beautiful color combinations for your design projects. 
-            <span className="block mt-2 text-sm md:text-base opacity-90">Powered by advanced color science and design principles</span>
-          </p>
-        </div>
-      </div>
-    </div>
-  );
-};
 
 // Enhanced Navigation Card with glassmorphism effect
 const NavigationCard = ({ 
